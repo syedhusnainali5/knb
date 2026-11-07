@@ -1,97 +1,306 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Karachi Naseeb Biryani (KNB)
 
-# Getting Started
+<p align="center">
+  <strong>Digital Food Ordering & Restaurant Management Platform</strong><br/>
+  A complete mobile ordering and restaurant operations solution.
+</p>
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+<p align="center">
+  <img src="https://img.shields.io/badge/React_Native-Mobile_App-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React Native"/>
+  <img src="https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/Express.js-API-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"/>
+  <img src="https://img.shields.io/badge/MongoDB-Database-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+</p>
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ⚠️ Repository Notice
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+This repository is a React Native boilerplate/showcase repository and does **not** contain the actual production source code of the Karachi Naseeb Biryani application.
 
-```sh
-# Using npm
-npm start
+The actual production application, backend implementation, database, administrative dashboard, credentials, and deployment infrastructure are maintained separately.
 
-# OR using Yarn
-yarn start
+---
+
+## 1. About Karachi Naseeb Biryani
+
+**Karachi Naseeb Biryani (KNB)** is a digital restaurant ordering platform designed to modernize the food ordering experience and streamline restaurant operations.
+
+The platform connects customers with restaurant branches through a dedicated mobile application while providing restaurant administrators with a centralized system for managing orders, branches, customers, and operational activities.
+
+The solution combines a customer-facing Android application, backend API services, database infrastructure, and a web-based administrative management system.
+
+### Core Objectives
+
+- Simplify online food ordering.
+- Provide a convenient mobile ordering experience.
+- Support multiple restaurant branches.
+- Improve order processing and management.
+- Centralize restaurant administration.
+- Reduce manual operational work.
+- Provide real-time order-related communication.
+
+---
+
+## 2. Mobile Application Features
+
+The customer application is developed using **React Native**, providing a native mobile experience.
+
+### 🍛 Food & Menu Browsing
+- Browse available food items.
+- View product information.
+- Explore restaurant offerings.
+- Access menu information.
+
+### 🛒 Cart & Ordering
+- Add food items to the cart.
+- Manage order quantities.
+- Review selected products.
+- Submit food orders.
+- Track order-related information.
+
+### 📍 Branch & Location Management
+- Discover available restaurant branches.
+- Identify eligible branches based on customer location.
+- Configurable branch-distance restrictions.
+- Default branch eligibility radius of 3 km, configurable between 1–5 km.
+
+### 📦 Order Management
+- Place orders through the mobile application.
+- Generate unique order references.
+- Follow order processing.
+- Access order information.
+- Maintain order history.
+
+### 🔔 Notifications & Communication
+- Receive order-related notifications.
+- Stay informed about order updates.
+- Support real-time communication between application services and customers.
+
+### 👤 Customer Experience
+- Customer account management.
+- Profile information.
+- Order history.
+- Convenient mobile-first interface.
+
+---
+
+## 3. Administrative Management System
+
+KNB includes a dedicated web-based administrative system designed to manage restaurant operations.
+
+The administration system communicates with backend services and provides authorized staff with centralized access to operational functionality.
+
+### Administrative Features
+
+**1. Order Management**
+- View incoming customer orders.
+- Access order details.
+- Manage order processing.
+- Update order statuses.
+- Monitor order activity.
+
+**2. Automatic Order Printing**
+
+One of the important operational integrations is automatic order-slip printing.
+
+The administrative environment supports browser-based automatic printing when a new order arrives, helping restaurant staff process incoming orders without manually checking and printing each order.
+
+**3. Branch Management**
+- Manage restaurant branches.
+- Maintain branch-related information.
+- Configure branch availability and operational settings.
+- Control branch-distance eligibility.
+
+**4. Customer Management**
+- Access customer records.
+- Review customer-related information.
+- Maintain customer order records.
+
+**5. Menu & Product Management**
+- Manage food items.
+- Maintain menu information.
+- Update product details and availability.
+
+**6. Operational Management**
+- Monitor restaurant activity.
+- Manage order workflows.
+- Access relevant operational information through the dashboard.
+
+---
+
+## 4. Technical Architecture
+
+The production KNB platform uses a client-server architecture.
+
+| Component | Technology | Purpose |
+|---|---|---|
+| Customer Mobile App | React Native CLI | Android application |
+| Backend | Node.js | Server-side processing |
+| API Framework | Express.js | REST API services |
+| Database | MongoDB | Persistent data storage |
+| Database Configuration | MongoDB Replica Set | Database deployment |
+| Admin Dashboard | Web-based | Restaurant administration |
+| Real-time Communication | Socket.IO | Order-related communication |
+| Process Management | PM2 | Backend process management |
+| Server Infrastructure | Ubuntu VPS | Production hosting |
+
+### System Architecture
+
+```text
+              CUSTOMERS
+                  |
+                  v
+         REACT NATIVE APP
+                  |
+                  v
+             REST APIs
+                  |
+                  v
+          NODE.JS + EXPRESS
+                  |
+          +-------+-------+
+          |               |
+          v               v
+       MONGODB         SOCKET.IO
+          |               |
+          |               v
+          |        REAL-TIME EVENTS
+          |               |
+          +-------+-------+
+                  |
+                  v
+          ADMIN DASHBOARD
+                  |
+          +-------+-------+
+          |               |
+          v               v
+     ORDER CONTROL    AUTO PRINTING
+          |
+          v
+     RESTAURANT STAFF
 ```
 
-## Step 2: Build and run your app
+This is a conceptual representation of the production platform, not a deployment diagram of the boilerplate repository.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+## 5. Order Processing Workflow
 
-```sh
-# Using npm
-npm run android
+The platform follows a structured order lifecycle.
 
-# OR using Yarn
-yarn android
+1. Customer opens the KNB mobile application.
+2. Customer browses the menu and selects food items.
+3. Customer adds items to the cart.
+4. Customer selects the appropriate ordering and delivery information.
+5. The application submits the order to the backend.
+6. The backend validates and stores the order.
+7. A unique order reference is generated using the `NB-10000+` numbering convention.
+8. The administrative system receives the incoming order.
+9. The browser-based administrative environment can automatically print the order slip.
+10. Restaurant staff process the order and update its status.
+11. Customers receive relevant order updates.
+
+---
+
+## 6. Backend & Infrastructure
+
+The production backend is deployed on Ubuntu-based VPS infrastructure.
+
+### Backend Responsibilities
+
+- Authentication and authorization.
+- Customer management.
+- Order creation and processing.
+- Menu and product operations.
+- Branch management.
+- Order status management.
+- Database operations.
+- Real-time event communication.
+- Administrative API services.
+
+### Production Deployment
+
+The production environment uses:
+
+- Ubuntu 24.04 LTS.
+- Node.js and Express.js.
+- MongoDB Replica Set (`rs0`).
+- PM2 process management.
+- Separate backend services for application and administration.
+- Socket.IO communication.
+- HTTPS-enabled domain configuration.
+
+The production infrastructure is not included in this repository.
+
+---
+
+## 7. Repository Scope
+
+This repository is intended for project presentation and technical reference.
+
+| Included | Not Included |
+|---|---|
+| React Native boilerplate | Actual production mobile app |
+| Starter project structure | Production backend source |
+| Project documentation | Production database |
+| Development configuration | Admin dashboard source |
+| Technical overview | Production credentials |
+| Architecture documentation | Server infrastructure |
+
+The production system is maintained separately.
+
+---
+
+## 8. Getting Started
+
+### Prerequisites
+
+- Node.js
+- React Native development environment
+- Android Studio
+- Android SDK
+- JDK
+- Git
+
+### Clone Repository
+
+```bash
+git clone <REPOSITORY_URL>
+cd <PROJECT_DIRECTORY>
 ```
 
-### iOS
+### Install Dependencies
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm install
 ```
 
-Then, and every time you update your native dependencies, run:
+### Android Development
 
-```sh
-bundle exec pod install
+```bash
+npx react-native run-android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+**Note:** These instructions apply to the included React Native boilerplate and do not reproduce the production KNB application.
 
-```sh
-# Using npm
-npm run ios
+---
 
-# OR using Yarn
-yarn ios
-```
+## 9. Production Application
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+The KNB mobile application is the customer-facing component of the production restaurant management ecosystem.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+**Application:** Karachi Naseeb Biryani (KNB)  
+**Platform:** Android  
+**Framework:** React Native CLI  
+**Backend:** Node.js / Express.js  
+**Database:** MongoDB
 
-## Step 3: Modify your app
+Google Play Store: https://play.google.com/store/apps/details?id=com.karachinaseebbiryani
 
-Now that you have successfully run the app, let's make changes!
+---
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+<p align="center">
+  <strong>Karachi Naseeb Biryani</strong><br/>
+  Bringing restaurant ordering and management into one connected digital platform.
+</p>
